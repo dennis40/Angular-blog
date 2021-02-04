@@ -1,0 +1,51 @@
+<div class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex justify-content-between">
+    <a
+      class="p-2 text-muted"
+      *ngFor="let category of categories"
+      (click)="setCategory(category)"
+    >
+      {{ category }}
+    </a>
+  </nav>
+</div>
+
+<div class="row d-flex">
+  <div class="figure">
+    <img
+      class="photo img-fluid"
+      src="https://www.la-palafitta.com/website-images/test/image-thumb__33__header-large/lapalafitta-03.jpeg"
+      alt=""
+    />
+    <div class="col-md-6 px-0 p-5">
+      <h1 class="display-4 font-italic">
+        Title of a longer featured blog post
+      </h1>
+      <p class="lead my-3">
+        Multiple lines of text that form the lede, informing new readers quickly
+        and efficiently about what's most interesting in this post's contents.
+      </p>
+      <p class="lead mb-0">
+        <a href="#" class="text-white font-weight-bold">Continue reading...</a>
+      </p>
+    </div>
+  </div>
+
+  <div *ngFor="let post of posts | sorting: chosenCategory" class="col-md-4">
+    <div class="p-0 mb-4 box-shadow">
+      <quill-view [content]="post.photo"></quill-view>
+      <div class="card-body mb-3">
+        <div class="m-0 d-flex justify-content-between align-items-center">
+          <strong class="mb-2 text-primary">{{ post.category }}</strong>
+          <small class="text-muted">{{ post.date | date: "shortDate" }}</small>
+        </div>
+        <h4 class="m-0">
+          <a class="text-dark" [routerLink]="['/post', post._id]">{{
+            post.title
+          }}</a>
+        </h4>
+        <quill-view [content]="post.text"></quill-view>
+      </div>
+    </div>
+  </div>
+</div>

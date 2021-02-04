@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="text-center">
+      <form (submit)="signIn()" class="form-signin">
+        <img
+          class="mb-4"
+          src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+          alt=""
+          width="72"
+          height="72"
+        />
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <input
+          [(ngModel)]="login"
+          type="login"
+          name="login"
+          id="inputLogin"
+          class="form-control mb-2"
+          placeholder="Login"
+        />
+        <input
+          [(ngModel)]="password"
+          type="password"
+          name="password"
+          id="inputPassword"
+          class="form-control mb-2"
+          placeholder="Password"
+        />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Sign in
+        </button>
+        <p class="mt-5 mb-3 text-muted">© 2017-2020</p>
+      </form>
+    </div>
+  </div>
+</div>
